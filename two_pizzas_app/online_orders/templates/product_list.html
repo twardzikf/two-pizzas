@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <table class="table">
+    <tbody>
+      {% for product in products %}
+        <tr>
+          <td class="fs-4">
+            {{ product.name }}
+          </td>
+          <td>
+            Größen-Optionen:
+            {% for size in product.sizes %}
+              <span class="text-primary ml-2">
+                {{ size }}
+              </span>
+            {% endfor %}
+          </td>
+          <td>
+            <a href="{% url 'order-form-view' %}?product_id={{ product.pk }}">
+              <button type="button" class="btn btn-outline-primary" >
+                Pizza bestellen
+              </button>
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

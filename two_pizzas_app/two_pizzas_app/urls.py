@@ -16,12 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from online_orders.views.order_views import order_form_view, order_list_view
-from online_orders.views.product_views import product_list_view
+from online_orders.views import order_form_view, order_list_view, product_list_view
 
 urlpatterns = [
-    path('', product_list_view, name='product_list'),
-    path('orders/', order_list_view, name='order_list'),
-    path('make_order/', order_form_view, name='order_form'),
+    path('', product_list_view, name='product-list-view'),
+    path('orders/', order_list_view, name='order-list-view'),
+    path('orders/new/', order_form_view, name='order-form-view'),
     path('admin/', admin.site.urls),
 ]

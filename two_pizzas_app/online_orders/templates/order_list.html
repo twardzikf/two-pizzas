@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form method="GET">
+    <input type="text" class="p-2 my-3" name="q">
+    <button type="submit" class="btn btn-outline-dark">Suchen</button>
+  </form>
+  <table class="table">
+    <tbody>
+      {% for order in orders %}
+        <tr>
+          <td>{{ order.product_name }}</td>
+          <td>{{ order.product_size }}</td>
+          <td>{{ order.name }}</td>
+          <td>{{ order.email }}</td>
+          <td>{{ order.phone }}</td>
+          <td>{{ order.created_at }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
