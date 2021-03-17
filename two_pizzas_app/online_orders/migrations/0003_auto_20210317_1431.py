@@ -3,19 +3,10 @@
 from django.db import migrations, models
 
 def initialize_products(apps, *args):
-    Person = apps.get_model('yourappname', 'Person')
-    Person.objects.create({
-        'name': 'Margharita',
-        'sizes': '["medium", "large"]'
-    })
-    Person.objects.create({
-        'name': 'Salami',
-        'sizes': '["small", "medium", "large"]'
-    })
-    Person.objects.create({
-        'name': 'Diavolo',
-        'sizes': '["small", "medium", "large"]'
-    })
+    Product = apps.get_model('online_orders', 'Product')
+    Product(name='Margharita', sizes=["medium", "large"]).save()
+    Product(name='Salami', sizes=["small", "medium", "large"]).save()
+    Product(name='Diavolo', sizes=["small", "medium", "large"]).save()
     
 class Migration(migrations.Migration):
 
